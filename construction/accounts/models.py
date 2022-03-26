@@ -61,12 +61,12 @@ class User(AbstractUser):
 
 class Contractor(User):
     department = models.CharField(max_length=70)
-    project = models.ForeignKey()
+    photo = models.ImageField(null=True,blank=True)
+    rating = models.IntegerField(null=True,blank=True)
+    description = models.TextField(null=True,blank=True)
 
-class Worker(AbstractUser):
-    username=None
-    aadhaar_no = models.PositiveBigIntegerField(max_length=12,primary_key=True)
-    name = models.CharField(max_length = 30)
-    phone_no = PhoneNumberField()
+class Worker(User):
+    department = models.CharField(max_length=70)
+    aadhaar_no = models.PositiveBigIntegerField(primary_key=True)
     photo = models.ImageField(null=True,blank=True)
     is_worker = models.BooleanField(default=False)
