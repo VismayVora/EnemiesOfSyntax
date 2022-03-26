@@ -1,7 +1,7 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
+import {URL,token} from '../utils/link'
 
 const DATA = [
     {
@@ -23,11 +23,36 @@ const DATA = [
 
 
 export default function Dashboard({navigation}){
+  const [data,setData]=useState([]);
+  const [loading,setLoading]=useState(true);
+
+  const getData=async()=>{
+    setLoading(true);
+    try{
+        const result=await fetch(URL+'/contractor_attendance/1/',{
+            method:'GET',
+            headers: {'Authorization': 'Token '+token},
+        });
+        const json= await result.json();
+        console.log(json);
+        setData(json);
+    }catch(error){
+        console.log(error);
+    }finally{
+        setLoading(false);
+    }
+}
+
+  useEffect(() => {
+      getData();
+  },[]);
+
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
         <View style={styles.item}>
-        <Text style={{fontSize:20}}>{item.title}</Text>
-        <Text style={{fontSize:16}}>{item.department}</Text>
+        <Text style={{fontSize:20}}>{item.contractor}</Text>
+        <Text style={{fontSize:16}}>{item.project}</Text>
+        <Text style={{fontSize:16}}>Attendance: {item.total_time}</Text>
         </View>
       </TouchableOpacity>
   );
@@ -38,7 +63,7 @@ export default function Dashboard({navigation}){
         <Text>Project Name:</Text>
         <Text>Description:</Text>
         <FlatList
-        data={DATA}
+        data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         horizontal={true}
@@ -58,6 +83,7 @@ const styles = StyleSheet.create({
       padding: 20,
       marginVertical: 8,
       marginHorizontal: 8,
+      borderRadius:5,
       height:90,
     },
   });

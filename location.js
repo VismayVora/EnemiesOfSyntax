@@ -65,14 +65,16 @@ export default function Location({navigation}) {
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
       >
-      <Marker coordinate={mumbaiRegion} title="Mumbai"/>
+      <Marker coordinate={mumbaiRegion} title="Mumbai" onPress={()=>navigation.navigate('Details')}/>
       {data.map((item,index)=>(
         <Marker key={index} title={item.name} coordinate={{
           latitude: item.latitude,
           longitude: item.longitude,
           latitudeDelta: 0.01,
           longitudeDelta: 0.01,
-        }}/>
+        }}
+        onPress={()=>navigation.navigate('Details')}
+        />
       ))}
       {visible?<Marker coordinate={region} onPress={()=>navigation.navigate("AddProject",{loc:region})} pinColor="green" title="New Project"/>:<></>}
       </MapView>
