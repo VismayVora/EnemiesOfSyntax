@@ -4,15 +4,15 @@ import PasswordInput from '../components/PassInput';
 import Textinp from '../components/Textinp';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-function Login({navigation}) {
+function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
-      {/* <Image source={require('../utils/undraw_Login_re_4vu2.png')} style={{height:150,width:210}}/> */}
-      <Text style={styles.text}>Login</Text>
+      <Text style={styles.text}>Sign Up</Text>
+      {/* <Image source={require('../utils/undraw_Login_re_4vu2.png')} style={{height:110,width:210}}/> */}
       <Textinp
-        marginTop={10}
+        marginTop={50}
         iconShape="mail"
         placeholder="Email"
         autoComplete="email"
@@ -33,23 +33,10 @@ function Login({navigation}) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-        navigation.navigate('bottomtabs');
-        console.log("Logged In");
-        }}><Text style={styles.textStyle}>Login</Text>
+        //   onLogin(email, password);
+        console.log("Signed Up")
+        }}><Text style={styles.textStyle}>Sign Up</Text>
       </TouchableOpacity>
-      <Text>Or</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-            navigation.navigate('auth')
-            console.log("Logged In");
-        }}><Text style={styles.textStyle}>Use Your Fingerprint</Text>
-      </TouchableOpacity>
-      <TouchableOpacity 
-        onPress={()=>navigation.navigate('SignUp')}>
-            <Text style={{fontSize:15,margin:30}}>Don't have an account? Signup</Text>
-        </TouchableOpacity>
-        
     </View>
   );
 }
@@ -64,13 +51,13 @@ const styles = StyleSheet.create({
     color: 'white',
     // marginTop: 25,
     alignSelf:'center',
-    fontSize:18,
+    fontSize:20,
   },
   text:{
     fontSize:24,
     fontWeight:'bold',
     alignSelf:'flex-start',
-    marginVertical:10,
+    marginBottom:10,
     marginLeft:wp('10%'),
 },
     button:{
@@ -82,4 +69,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Login;
+export default SignUp;

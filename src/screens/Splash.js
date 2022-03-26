@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity,Text } from 'react-native';
 import LottieView from 'lottie-react-native';
 
 export default function Splash({ navigation }) {
@@ -12,9 +12,10 @@ export default function Splash({ navigation }) {
 
         style={styles.animation}
       />
-      {/* <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Image source={require('../assets/sportify.jpeg')} style={styles.image} />
-      </TouchableOpacity> */}
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        {/* <Image source={require('../assets/sportify.jpeg')} style={styles.image} /> */}
+        <Text style={styles.image}>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 }

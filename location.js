@@ -2,7 +2,7 @@ import React,{useState , useRef }  from "react";
 import { StyleSheet,Button, Text, View } from "react-native";
 import { Marker } from "react-native-maps";
 import MapView from "react-native-maps";
-export default function location() {
+export default function Location() {
   const mapRef = useRef(null);
   const [region, setRegion] = useState({
     latitude: 51.5079145,
