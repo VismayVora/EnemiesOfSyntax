@@ -1,0 +1,2 @@
+# EnemiesOfSyntax
+Construction is a booming industry in the current times but this big demand for construction workers and their increased workload has led to a compromise in their safety and work quality. We need to make sure the management of work happens properly and proper safety precautions are maintained. The distribution of workload should also be done efficiently so as to maintain a proper balance.
