@@ -1,101 +1,59 @@
-import React, { useState } from 'react';
-import {StyleSheet, View, Text, Button, Linking} from 'react-native';
-import RNLocation from 'react-native-location';
-
-RNLocation.configure({
-  distanceFilter: null,
-})
-
-
-const App = ({url}) => {
-
-  [viewLocation, isViewLocation] = useState([])
-
-  const [tweet, setTweet] = useState([viewLocation.longitude, viewLocation.latitude]);
-
-  const tweetLocation = () => {
-     let twitterParams = [];
-
-     try {
-      if (tweet)
-      twitterParams.push('text=' + encodeURI(tweet));
-
-      const url = 'https://twitter.com/intent/tweet?' + twitterParams.join('&');
-    
-      Linking.openURL(url)
-     } catch (error) {
-                        alert('Something went wrong');
-                    } 
-    }    
-
-  const getLocation = async () => {
-    
-    let permission = await RNLocation.checkPermission({
-      ios: 'whenInUse', // or 'always'
-      android: {
-        detail: 'coarse' // or 'fine'
-      }
-    });
-  
-    console.log(permission)
-
-    let location;
-    if(!permission) {
-      permission = await RNLocation.requestPermission({
-        ios: "whenInUse",
-        android: {
-          detail: "coarse",
-          rationale: {
-            title: "We need to access your location",
-            message: "We use your location to show where you are on the map",
-            buttonPositive: "OK",
-            buttonNegative: "Cancel"
-          }
-        }
-      })
-      console.log(permission)
-      location = await RNLocation.getLatestLocation({timeout: 100})
-      console.log(location)
-      isViewLocation(location)
-      
-    } else {
-      location = await RNLocation.getLatestLocation({timeout: 100})
-      console.log(location)
-      isViewLocation(location)
-      setTweet([viewLocation.longitude, viewLocation.latitude])
-    }
-  }
-  
-
+import React,{useState , useRef }  from "react";
+import { StyleSheet,Button, Text, View } from "react-native";
+import { Marker } from "react-native-maps";
+import MapView from "react-native-maps";
+export default function location() {
+  const mapRef = useRef(null);
+  const [region, setRegion] = useState({
+    latitude: 51.5079145,
+    longitude: -0.0899163,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  });
+  const tokyoRegion = {
+    latitude: 19.6762,
+    longitude: 72.6503,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  };
+  const goToTokyo = () => {
+    //complete this animation in 3 seconds
+    mapRef.current.animateToRegion(tokyoRegion, 3 * 1000);
+  };
   return (
     <View style={styles.container}>
-      <Text>React Native Geolocation</Text>
-      <View
-        style={{marginTop: 10, padding: 10, borderRadius: 10, width: '40%'}}>
-        <Button title="Get Location" 
-        onPress={getLocation} 
-        />
-      </View>
-      <Text>Latitude: {viewLocation.latitude} </Text>
-      <Text>Longitude: {viewLocation.longitude} </Text>
-      <View
-        style={{marginTop: 10, padding: 10, borderRadius: 10, width: '40%'}}>
-        <Button
-          title="Send Location"
-          onPress={tweetLocation}
-        />
-      </View>
+      <MapView
+        ref={mapRef}
+        style={styles.map}
+        initialRegion={{
+          latitude: 24.8607,
+          longitude: 67.0011,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        onRegionChangeComplete={(region) => setRegion(region)}
+      />
+      <Marker coordinate={tokyoRegion}>
+        
+        </Marker>
+      <Button onPress={() => goToTokyo()} title="Go to Tokyo" />
+      <Text style={styles.text}>Current latitude{region.latitude}</Text>
+      <Text style={styles.text}>Current longitude{region.longitude}</Text>
     </View>
   );
-};
-
+}
 const styles = StyleSheet.create({
   container: {
+    ...StyleSheet.absoluteFillObject,
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  text: {
+    fontSize: 20,
+    backgroundColor: "lightblue",
   },
 });
-
-export default App;
