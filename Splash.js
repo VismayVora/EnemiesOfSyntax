@@ -12,9 +12,9 @@ export default function Splash({ navigation }) {
 
         style={styles.animation}
       />
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+      {/* <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Image source={require('../assets/sportify.jpeg')} style={styles.image} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 }
