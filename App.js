@@ -8,6 +8,11 @@ import Auth from './src/screens/auth'
 import BottomTabs from './bottomtabs';
 import Toast from 'react-native-toast-message';
 import Profile from './src/screens/Profile';
+import Location from './location';
+import AddProject from './src/screens/AddProject';
+import attendance from './src/screens/attendance';
+import ScanQRCode from './src/screens/ScanQRCode';
+import Attendance from './src/screens/attendance';
 const Stack = createStackNavigator();
 function App() {
   useEffect(() => {
@@ -16,7 +21,7 @@ function App() {
   return (
     <><Toast ref={(ref)=>Toast.setRef(ref)}/>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash" independent={true}>
+      <Stack.Navigator initialRouteName="attendance" independent={true}>
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -42,7 +47,23 @@ function App() {
           name="Profile"
           component={Profile}
           options={{ headerShown: false }}></Stack.Screen>
-      </Stack.Navigator>
+      <Stack.Screen
+          name="AddProject"
+          component={AddProject}
+          options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen
+          name="Location"
+          component={Location}
+          options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen
+          name="attendance"
+          component={Attendance}
+          options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen
+          name="ScanQRCode"
+          component={ScanQRCode}
+          options={{ headerShown: false }}></Stack.Screen>
+        </Stack.Navigator>
     </NavigationContainer>
     </>
   );

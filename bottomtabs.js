@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Home from './src/screens/Home';
 import Dashboard from './src/screens/Dashboard';
+import Location from './location';
 // import Events from './Events';
 // import HomeNavigator from './HomeNavigator';
 // import Dashboard from './dashboard';
@@ -16,7 +17,7 @@ const Tab = createBottomTabNavigator();
 const BottomTabs = ({ route }) => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      // initialRouteName="Home"
 
       independent={true}
       screenOptions={{
@@ -26,11 +27,11 @@ const BottomTabs = ({ route }) => {
       }}
     >
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="Location"
+        component={Location}
         options={{
           headerShown: false,
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Locations',
           tabBarColor: '#009387',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-home" color={color} size={26} />
