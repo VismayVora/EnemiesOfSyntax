@@ -27,6 +27,7 @@
     "react-native-location": "^2.5.0",
     "react-native-maps": "0.30.1",
     "react-native-paper": "^4.11.2",
+    "react-native-pie-chart": "^2.0.2",
     "react-native-qrcode-scanner": "^1.5.5",
     "react-native-qrcode-svg": "^6.1.2",
     "react-native-responsive-screen": "^1.4.2",
