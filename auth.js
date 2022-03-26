@@ -18,6 +18,7 @@ export default function Auth() {
   })
     .then(() => {
       Alert.alert('Authentication Successful!');
+      console.log("Done")
     })
     .catch(() => {
       Alert.alert('Fingerprint Did not match');

@@ -3,11 +3,13 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import Events from './Events';
-import HomeNavigator from './HomeNavigator';
-import Dashboard from './dashboard';
-import Profile from './Profile';
-import News from './News';
+import Home from './src/screens/Home';
+import Dashboard from './src/screens/Dashboard';
+// import Events from './Events';
+// import HomeNavigator from './HomeNavigator';
+// import Dashboard from './dashboard';
+// import Profile from './Profile';
+// import News from './News';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +27,7 @@ const BottomTabs = ({ route }) => {
     >
       <Tab.Screen
         name="Home"
-        component={HomeNavigator}
+        component={Home}
         options={{
           headerShown: false,
           tabBarLabel: 'Home',
@@ -35,7 +37,7 @@ const BottomTabs = ({ route }) => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Events"
         component={Events}
         options={{
@@ -46,7 +48,7 @@ const BottomTabs = ({ route }) => {
             <Icon name="card-outline" color={color} size={26} />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Dashboard"
         options={{
@@ -60,7 +62,7 @@ const BottomTabs = ({ route }) => {
         }}
         component={Dashboard}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="News"
         component={News}
         options={{
@@ -71,8 +73,8 @@ const BottomTabs = ({ route }) => {
             <Icon name="card-outline" color={color} size={26} />
           ),
         }}
-      />
-      <Tab.Screen
+      /> */}
+      {/* <Tab.Screen
         name="Profile"
         options={{
           headerShown: false,
@@ -83,7 +85,7 @@ const BottomTabs = ({ route }) => {
           ),
         }}
         component={Profile}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };
