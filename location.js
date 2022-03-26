@@ -1,8 +1,11 @@
-import React,{useState , useRef }  from "react";
-import { StyleSheet,Button, Text, View } from "react-native";
+import React,{useState , useRef,useEffect }  from "react";
+import { StyleSheet,Button, Text, View,TouchableOpacity } from "react-native";
 import { Marker } from "react-native-maps";
 import MapView from "react-native-maps";
+import {URL,token} from "./src/utils/link"
 export default function Location({navigation}) {
+  const [data,setData]=useState([]);
+  const [loading,setLoading]=useState(true);
   const [visible,setVisible]=useState(false);
   const mapRef = useRef(null);
   const [region, setRegion] = useState({
@@ -17,6 +20,24 @@ export default function Location({navigation}) {
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };
+
+  const getProjects=async()=>{
+    setLoading(true);
+    try{
+        const result=await fetch(URL+'/create_project/',{
+            method:'GET',
+            headers: {'Authorization': 'Token '+token},
+        });
+        const json= await result.json();
+        console.log(json);
+        setData(json);
+    }catch(error){
+        console.log(error);
+        // Alert.alert(error);
+    }finally{
+        setLoading(false);
+    }
+}
   const goToTokyo = () => {
     //complete this animation in 3 seconds
     mapRef.current.animateToRegion(tokyoRegion, 3 * 1000);
@@ -25,6 +46,12 @@ export default function Location({navigation}) {
     setVisible(true);
     // navigation.navigate('AddProject')
   };
+
+  useEffect(() => {
+    // console.log(BASE_URL);
+      getProjects();
+  },[]);
+
   return (
     <View style={styles.container}>
       <MapView
@@ -38,11 +65,21 @@ export default function Location({navigation}) {
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
       >
-      <Marker coordinate={mumbaiRegion} onPress={()=>navigation.navigate("AddProject")} title="Mumbai"/>
+      <Marker coordinate={mumbaiRegion} title="Mumbai"/>
+      {data.map((item,index)=>(
+        <Marker key={index} title={item.name} coordinate={{
+          latitude: item.latitude,
+          longitude: item.longitude,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
+        }}/>
+      ))}
       {visible?<Marker coordinate={region} onPress={()=>navigation.navigate("AddProject",{loc:region})} pinColor="green" title="New Project"/>:<></>}
       </MapView>
-      {/* <Button onPress={() => goToTokyo()} title="Go to Tokyo" /> */}
-      <Button onPress={() => selectLocation()} title="Add a project" />
+      <View style={{flexDirection:'row'}}>
+        <TouchableOpacity style={styles.button} onPress={() => selectLocation()}><Text>Add A Project</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => getProjects()}><Text>Refresh</Text></TouchableOpacity>
+      </View>
       {/* <Text style={styles.text}>Current latitude{region.latitude}</Text>
       <Text style={styles.text}>Current longitude{region.longitude}</Text> */}
     </View>
@@ -62,4 +99,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     backgroundColor: "lightblue",
   },
+  button:{
+    marginHorizontal:10,
+  }
 });

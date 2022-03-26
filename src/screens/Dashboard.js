@@ -21,7 +21,7 @@ const DATA = [
     },
   ];
 
-  
+
 export default function Dashboard({navigation}){
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
