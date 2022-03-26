@@ -13,6 +13,7 @@ import AddProject from './src/screens/AddProject';
 import attendance from './src/screens/attendance';
 import ScanQRCode from './src/screens/ScanQRCode';
 import Attendance from './src/screens/attendance';
+import Contractorlist from './src/screens/Contractorlist';
 const Stack = createStackNavigator();
 function App() {
   useEffect(() => {
@@ -21,7 +22,7 @@ function App() {
   return (
     <><Toast ref={(ref)=>Toast.setRef(ref)}/>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="attendance" independent={true}>
+      <Stack.Navigator initialRouteName="Splash" independent={true}>
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -62,6 +63,10 @@ function App() {
           <Stack.Screen
           name="ScanQRCode"
           component={ScanQRCode}
+          options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen
+          name="Contractorlist"
+          component={Contractorlist}
           options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>
     </NavigationContainer>

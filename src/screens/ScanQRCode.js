@@ -13,6 +13,7 @@ import { RNCamera } from 'react-native-camera';
 
 const ScanQRCode = ({ navigation }) => {
     onSuccess = e => {
+        console.log(e);
         Linking.openURL(e.data).catch(err =>
             console.error('An error occured', err)
         );
@@ -24,9 +25,7 @@ const ScanQRCode = ({ navigation }) => {
             flashMode={RNCamera.Constants.FlashMode.torch}
             topContent={
                 <Text style={styles.centerText}>
-                    Go to{' '}
-                    <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-                    your computer and scan the QR code.
+                   Scanner
                 </Text>
             }
             bottomContent={

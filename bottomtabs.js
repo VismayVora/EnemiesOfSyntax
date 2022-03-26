@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Home from './src/screens/Home';
 import Dashboard from './src/screens/Dashboard';
 import Location from './location';
+import Contractorlist from './src/screens/Contractorlist';
 // import Events from './Events';
 // import HomeNavigator from './HomeNavigator';
 // import Dashboard from './dashboard';
@@ -64,18 +65,18 @@ const BottomTabs = ({ route }) => {
         }}
         component={Dashboard}
       />
-      {/* <Tab.Screen
-        name="News"
-        component={News}
+      <Tab.Screen
+        name="Contractorlist"
+        component={Contractorlist}
         options={{
           headerShown: false,
-          tabBarLabel: 'News',
+          tabBarLabel: 'Contractors',
           tabBarColor: '#1f65ff',
           tabBarIcon: ({ color }) => (
-            <Icon name="card-outline" color={color} size={26} />
+            <Icon name="person-sharp" color={color} size={26} />
           ),
         }}
-      /> */}
+      />
       {/* <Tab.Screen
         name="Profile"
         options={{

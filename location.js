@@ -39,7 +39,7 @@ export default function Location({navigation}) {
         onRegionChangeComplete={(region) => setRegion(region)}
       >
       <Marker coordinate={mumbaiRegion} onPress={()=>navigation.navigate("AddProject")} title="Mumbai"/>
-      {visible?<Marker coordinate={region} onPress={()=>navigation.navigate("AddProject")} pinColor="green" title="New Project"/>:<></>}
+      {visible?<Marker coordinate={region} onPress={()=>navigation.navigate("AddProject",{loc:region})} pinColor="green" title="New Project"/>:<></>}
       </MapView>
       {/* <Button onPress={() => goToTokyo()} title="Go to Tokyo" /> */}
       <Button onPress={() => selectLocation()} title="Add a project" />
