@@ -1,42 +1,48 @@
-import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+import React,{useState} from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 const DATA = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
+      title: 'Contractor 1',
+      department: 'Dept 1'
     },
     {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
+      title: 'Contractor 2',
+      department: 'Dept 2'
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
+      title: 'Contractor 3',
+      department: 'Dept 3'
     },
   ];
 
-  const Item = ({ title }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-
-export default function Dashboard(){
+  
+export default function Dashboard({navigation}){
   const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
+        <View style={styles.item}>
+        <Text style={{fontSize:20}}>{item.title}</Text>
+        <Text style={{fontSize:16}}>{item.department}</Text>
+        </View>
+      </TouchableOpacity>
   );
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
+      <View>
+        <Text>Project Name:</Text>
+        <Text>Description:</Text>
+        <FlatList
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         horizontal={true}
       />
-      <View>
-          <Text>Hi</Text>
       </View>
     </SafeAreaView>
   );
@@ -45,17 +51,14 @@ export default function Dashboard(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: StatusBar.currentHeight || 0,
+      marginTop: hp('2%'),
     },
     item: {
       backgroundColor: '#f9c2ff',
       padding: 20,
       marginVertical: 8,
-      marginHorizontal: 16,
+      marginHorizontal: 8,
       height:90,
-    },
-    title: {
-      fontSize: 18,
     },
   });
   

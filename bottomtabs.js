@@ -53,6 +53,7 @@ const BottomTabs = ({ route }) => {
         name="Dashboard"
         options={{
           headerShown: false,
+          // title:'Project Details'
           tabBarLabel: 'Dashboard',
           tabBarColor: '#1f65ff',
 

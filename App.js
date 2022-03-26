@@ -6,12 +6,15 @@ import Login from './src/screens/Login';
 import SignUp from './src/screens/SignUp';
 import Auth from './src/screens/auth'
 import BottomTabs from './bottomtabs';
+import Toast from 'react-native-toast-message';
+import Profile from './src/screens/Profile';
 const Stack = createStackNavigator();
 function App() {
   useEffect(() => {
     console.disableYellowBox = true
   })
   return (
+    <><Toast ref={(ref)=>Toast.setRef(ref)}/>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash" independent={true}>
         <Stack.Screen
@@ -35,8 +38,13 @@ function App() {
           name="bottomtabs"
           component={BottomTabs}
           options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{ headerShown: false }}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
+    </>
   );
 }
 

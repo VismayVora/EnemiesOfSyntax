@@ -30,11 +30,6 @@ const styles = StyleSheet.create({
     height: 300,
     margin: 55,
     marginLeft: 20
-
-
-
-
-
   },
   image: {
     alignItems: 'center',
@@ -42,7 +37,5 @@ const styles = StyleSheet.create({
     margin: 50,
     height: 150,
     width: 300
-
-
   },
 });
