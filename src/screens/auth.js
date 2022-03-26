@@ -8,6 +8,8 @@ import TouchId from 'react-native-touch-id';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomTabs from '../../bottomtabs';
+import AddProject from './AddProject';
+import Location from '../../location';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +30,15 @@ export default function Auth() {
     <NavigationContainer independent={true}>
     <Stack.Navigator>
       <Stack.Screen name="bottomtabs" component={BottomTabs}  options={{ headerShown: false }} />
+      <Stack.Screen
+          name="AddProject"
+          component={AddProject}
+          options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen
+          name="Location"
+          component={Location}
+          options={{ headerShown: false }}></Stack.Screen>
+
     </Stack.Navigator>
   </NavigationContainer>
   );
