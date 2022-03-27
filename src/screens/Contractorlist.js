@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import Stars from 'react-native-stars';
 import {
   StyleSheet,
   View,
@@ -84,11 +86,21 @@ export default function Contractorlist({ navigation }) {
 
             </View>
           </View>
-          <Text style={styles.post}>PHONE NUMBER - {item.phone_no}</Text>
+          <Text style={styles.post}>CONTACT - {item.phone_no}</Text>
           <Text style={styles.post}>EMAIL - {item.email}</Text>
           <Text style={styles.post}>DEPARTMENT - {item.department}</Text>
          
-
+          <View style={{backgroundColor:'yellow',marginVertical:12,borderRadius:7}}>
+          <Stars
+            default={2.5}
+            count={5}
+            half={true}
+            // starSize={100} 
+            fullStar={<Ionicons name={'star'} size={20} color="#393E46"  style={{paddingLeft:10}}/>}
+            emptyStar={<Ionicons name={'star-outline'} size={20} color="#393E46"  style={{paddingLeft:10}}/>}
+            halfStar={<Ionicons name={'star-half-sharp'} size={20} color="#393E46"  style={{paddingLeft:10}}/>}
+          />
+        </View>
 
         </View>
       </View>
@@ -98,7 +110,6 @@ export default function Contractorlist({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View>
         <View style={styles.inputCard} >
           <TextInput
             style={styles.input}
@@ -108,10 +119,8 @@ export default function Contractorlist({ navigation }) {
             value={search}
             onChangeText={(text) => searchFilter(text)}
           />
-
         </View>
-      </View>
-
+      
       <FlatList
         data={filteredData}
         keyExtractor={({ id }) => id}
@@ -151,10 +160,11 @@ const styles = StyleSheet.create({
   },
   feedItem: {
     backgroundColor: "#0065ff",
-    borderRadius: 5,
+    borderRadius: 7,
     padding: 8,
     flexDirection: "row",
-    margin: 25,
+    margin: 10,
+    marginHorizontal:15,
     shadowColor: "#000000",
     shadowOffset: { height: 15 },
     shadowRadius: 15,
@@ -193,10 +203,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "black",
     backgroundColor: '#0065ff',
     color: "#FFFFFF",
-
+    borderRadius:7
   },
   inputCard: {
-    margin: 25,
+    margin: 10,
     flexDirection: 'row',
     
     alignItems: 'center',

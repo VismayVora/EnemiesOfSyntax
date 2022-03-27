@@ -2,6 +2,9 @@ import React,{useState,useEffect} from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import {URL,token} from '../utils/link'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const DATA = [
     {
@@ -23,42 +26,12 @@ const DATA = [
 
 
 export default function Dashboard({navigation}){
-  const [data,setData]=useState([]);
-  const [loading,setLoading]=useState(true);
-
-  const getData=async()=>{
-    setLoading(true);
-    try{
-        const result=await fetch(URL+'/contractor_attendance/',{
-            method:'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Token '+token},
-            body: JSON.stringify({
-              "pk":1,
-              "date":"2022-03-26",
-            }),
-        });
-        const json= await result.json();
-        console.log(json);
-        setData(json);
-    }catch(error){
-        console.log(error);
-    }finally{
-        setLoading(false);
-    }
-}
-
-  useEffect(() => {
-      getData();
-  },[]);
 
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
         <View style={styles.item}>
-        <Text style={{fontSize:20}}>{item.contractor}</Text>
-        <Text style={{fontSize:16}}>{item.project}</Text>
-        <Text style={{fontSize:16}}>Attendance: {item.total_time}</Text>
+        <Text style={{fontSize:20}}>{item.title}</Text>
+        <Text style={{fontSize:16}}>{item.department}</Text>
         </View>
       </TouchableOpacity>
   );
@@ -66,14 +39,28 @@ export default function Dashboard({navigation}){
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <Text>Project Name:</Text>
-        <Text>Description:</Text>
-        <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        horizontal={true}
-      />
+      <Text style={styles.text}>Project OverView</Text>
+        <View style={styles.item}>
+        <FontAwesome name={'building-o'} size={50} color="#393E46"  style={{paddingHorizontal:12}}/>
+          <View>
+            <Text style={styles.text}>No. of Projects</Text>
+            <Text style={styles.text}>6</Text>
+          </View>
+        </View>
+        <View style={styles.item}>
+        <MaterialIcons name={'attach-money'} size={50} color="#393E46"  style={{marginRight:12}}/>
+          <View>
+            <Text style={styles.text}>Contract Value</Text>
+            <Text style={styles.text}>Rs. 40.35 Cr</Text>
+          </View>
+        </View>
+        <View style={styles.item}>
+        <Ionicons name={'speedometer-outline'} size={50} color="#393E46"  style={{marginRight:12}}/>
+          <View>
+            <Text style={styles.text}>Budget</Text>
+            <Text style={styles.text}>Rs. 31.10 Cr</Text>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -85,13 +72,16 @@ const styles = StyleSheet.create({
       marginTop: hp('2%'),
       backgroundColor:"#FFFFFF"
     },
-    item: {
-      backgroundColor: '#f9c2ff',
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 8,
-      borderRadius:5,
-      height:90,
+    text:{
+      fontWeight:'bold',
+      fontSize:20,
     },
+    item:{
+      flexDirection:'row',
+      width:wp('80%'),
+      marginVertical:5,
+      alignItems:'center',
+      justifyContent:'center'
+    }
   });
   
