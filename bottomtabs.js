@@ -8,18 +8,14 @@ import Dashboard from './src/screens/Dashboard';
 import Location from './location';
 import Contractorlist from './src/screens/Contractorlist';
 import Report from './src/screens/Report';
-// import Events from './Events';
-// import HomeNavigator from './HomeNavigator';
-// import Dashboard from './dashboard';
-// import Profile from './Profile';
-// import News from './News';
+import Violations from './src/screens/voilations';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = ({ route }) => {
   return (
     <Tab.Navigator
-      // initialRouteName="Home"
+      
 
       independent={true}
       screenOptions={{
@@ -55,16 +51,16 @@ const BottomTabs = ({ route }) => {
         component={Dashboard}
       />
       <Tab.Screen
-        name="Report"
+        name="Violations"
         options={{
           headerShown: false,
-          tabBarLabel: 'Report',
+          tabBarLabel: 'Violations',
           tabBarColor: '#000000',
           tabBarIcon: ({ color }) => (
             <Icon name="analytics-sharp" color={color} size={26} />
           ),
         }}
-        component={Report}
+        component={Violations}
       />
       <Tab.Screen
         name="Contractorlist"

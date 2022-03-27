@@ -16,17 +16,6 @@ const Attendance = ({ navigation }) => {
   const [qrvalue, setQrvalue] = useState('');
   let myQRCode = useRef();
 
-  const shareQRCode = () => {
-    myQRCode.toDataURL(dataURL => {
-      console.log(dataURL);
-      let shareImageBase64 = {
-        title: 'React Native',
-        url: `data:image/png;base64,${dataURL}`,
-        subject: 'Share Link', //
-      };
-      Share.share(shareImageBase64).catch(error => console.log(error));
-    });
-  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -43,7 +32,7 @@ const Attendance = ({ navigation }) => {
           logoBackgroundColor="yellow"
         />
         <Text style={styles.textStyle}>
-         Scan your QR Code while entering and leaving the premises
+         Scan your QR Code while entering and leaving the premises.
         </Text>
         <TouchableOpacity
           style={styles.buttonStyle}

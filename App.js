@@ -18,6 +18,7 @@ import Details from './src/screens/Details';
 import Login1 from './src/screens/Login1';
 import SignUp1 from './src/screens/SignUp1';
 import Auth1 from './src/screens/auth1';
+import Report from './src/screens/Report';
 // import Drawer from './src/screens/Drawer';
 const Stack = createStackNavigator();
 function App() {
@@ -90,10 +91,10 @@ function App() {
           name="Details"
           component={Details}
           options={{ headerShown: false }}></Stack.Screen>
-          {/* <Stack.Screen
-          name="Drawer"
-          component={Drawer}
-          options={{ headerShown: false }}></Stack.Screen> */}
+          <Stack.Screen
+          name="Report"
+          component={Report}
+          options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>
     </NavigationContainer>
     </>

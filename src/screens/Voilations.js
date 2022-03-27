@@ -15,7 +15,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { URL } from '../utils/link';
 
 
-export default function Contractorlist({ navigation }) {
+export default function Violations({ navigation }) {
   const [search, setSearch] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [masterData, setMasterData] = useState([]);
@@ -31,7 +31,7 @@ export default function Contractorlist({ navigation }) {
     
     var config = {
         method: 'get',
-        url: URL+'/contractors/',
+        url: URL+'/contractorviolation/',
         headers: {
           'Authorization': 'Token b01b48aeb6761f6b2b4d095f3b81eace9cf42f9a'
         }
@@ -75,7 +75,7 @@ export default function Contractorlist({ navigation }) {
     return (
       <View style={styles.feedItem} elevation={15}>
         <TouchableOpacity onPress={() => {
-            navigation.navigate('Report')
+           
            
         }}>
         <ImageBackground source={{
@@ -85,7 +85,7 @@ export default function Contractorlist({ navigation }) {
           <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
             <View style={{ flexDirection: "row" }}>
 
-              <Text style={styles.name}>NAME- {item.name}</Text>
+              <Text style={styles.name}>NAME- {item.contractors}</Text>
               
 
             </View>
