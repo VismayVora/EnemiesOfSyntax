@@ -35,6 +35,29 @@ const DATA = [
     },
   ];
 
+  const Dash = [
+    {
+      id: 1,
+      title: 'No. of Projects',
+      value: '6'
+    },
+      {
+        id: 2,
+        title: 'Contract Value',
+        value: '40.35 Cr'
+      },
+      {
+        id: 3,
+        title: 'Budget',
+        value: '31.10 Cr'
+      },
+      {
+        id: 4,
+        title: 'Margin',
+        value: '23%'
+      },
+    ];
+
 
 export default function Dashboard({navigation}){
 
@@ -46,12 +69,20 @@ export default function Dashboard({navigation}){
         </View>
       
   );
+  const render = ({ item }) => (
+   
+    <View style={{borderWidth:1,backgroundColor:'#0065ff',flexDirection:'row',justifyContent:'space-between',width:wp('80%'),alignSelf:'center'}}>
+    <Text style={{fontSize:20,padding:10,color:'white'}}>{item.title}</Text>
+    <Text style={{fontSize:16,padding:10,color:'white'}}>{item.value}</Text>
+    </View>
+  
+);
 
   return (
     <SafeAreaView style={styles.container}>
       <View>
       <Text style={styles.text}>Projects OverView</Text>
-        <View style={styles.item}>
+        {/* <View style={styles.item}>
         <FontAwesome name={'building-o'} size={45} color="#393E46"  style={{paddingHorizontal:12}}/>
           <View style={{flexDirection:'row'}}>
             <Text style={styles.text}> No. of Projects - </Text>
@@ -78,7 +109,13 @@ export default function Dashboard({navigation}){
             <Text style={styles.text}>Margin   -  </Text>
             <Text style={styles.text}>23%</Text>
           </View>
-        </View>
+        </View> */}
+        <FlatList
+        data={Dash}
+        keyExtractor={({ id }) => id}
+        contentContainerStyle={{}}
+        renderItem={render}
+      />
       </View>
       <View style={{marginTop:10}}>
         <Text style={styles.text}>Projects On My WatchList</Text>
