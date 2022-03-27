@@ -53,8 +53,8 @@ export default function Violations({ navigation }) {
   const searchFilter = (text) => {
     if (text) {
       const newData = masterData.filter((item) => {
-        const itemData = item.department
-          ? item.department.toUpperCase()
+        const itemData = item.name
+          ? item.contractor.toUpperCase()
           : ''.toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
@@ -74,40 +74,31 @@ export default function Violations({ navigation }) {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.feedItem} elevation={15}>
-        <TouchableOpacity onPress={() => {
+    
            
            
-        }}>
-        <ImageBackground source={{
-           uri:URL+ item.photo,
-          }} style={styles.avatar} resizeMode="stretch" />
+       
+        
         <View style={{ flex: 1 }}>
-          <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-            <View style={{ flexDirection: "row" }}>
+        
+           
 
-              <Text style={styles.name}>NAME- {item.contractors}</Text>
+              <Text style={styles.name}>NAME- {item.name}</Text>
               
 
-            </View>
-          </View>
-          <Text style={styles.post}>CONTACT - {item.phone_no}</Text>
-          <Text style={styles.post}>EMAIL - {item.email}</Text>
-          <Text style={styles.post}>DEPARTMENT - {item.department}</Text>
+          <Text style={styles.post}>VIOLATION1 - {item.mask}</Text>
+          <Text style={styles.post}>VIOLATION2 - {item.helmet}</Text>
+          <Text style={styles.post}>LOCATION - {item.longitude},{item.latitude}</Text>
+          <ImageBackground source={{
+           uri: item.photo,
+          }} style={styles.avatar}  />
          
-          <View style={{backgroundColor:'yellow',marginVertical:12,borderRadius:7}}>
-          <Stars
-            default={2.5}
-            count={5}
-            half={true}
-            // starSize={100} 
-            fullStar={<Ionicons name={'star'} size={20} color="#393E46"  style={{paddingLeft:10}}/>}
-            emptyStar={<Ionicons name={'star-outline'} size={20} color="#393E46"  style={{paddingLeft:10}}/>}
-            halfStar={<Ionicons name={'star-half-sharp'} size={20} color="#393E46"  style={{paddingLeft:10}}/>}
-          />
+          <View style={{backgroundColor:'yellow',borderRadius:7}}>
+          
         </View>
 
         </View>
-        </TouchableOpacity>
+      
       </View>
 
     );
@@ -118,7 +109,7 @@ export default function Violations({ navigation }) {
         <View style={styles.inputCard} >
           <TextInput
             style={styles.input}
-            placeholder='Search By Department'
+            placeholder='Search By Name'
             placeholderTextColor="white"
             clearButtonMode="always"
             value={search}
@@ -176,10 +167,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 10,
   },
   avatar: {
-    width: 46,
-    height: 46,
+    width: 330,
+    height: 250,
     borderRadius: 20,
-    marginRight: 16
+    margin: 10,
+    padding:20
   },
   name: {
     fontSize: 15,
@@ -192,8 +184,7 @@ const styles = StyleSheet.create({
     marginTop: 4
   },
   post: {
-    marginTop: 16,
-    fontSize: 14,
+        fontSize: 14,
     color: "white"
   },
   postImage: {
