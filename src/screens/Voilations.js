@@ -11,7 +11,6 @@ import {
   ImageBackground,
   Image
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { URL } from '../utils/link';
 
 

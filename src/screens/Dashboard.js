@@ -39,12 +39,12 @@ const DATA = [
 export default function Dashboard({navigation}){
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
-        <View style={{borderWidth:1,flexDirection:'row',justifyContent:'space-between',width:wp('80%'),alignSelf:'center'}}>
-        <Text style={{fontSize:20,padding:10}}>{item.id}</Text>
-        <Text style={{fontSize:16,padding:10}}>{item.department}</Text>
+   
+        <View style={{borderWidth:1,backgroundColor:'#0065ff',flexDirection:'row',justifyContent:'space-between',width:wp('80%'),alignSelf:'center'}}>
+        <Text style={{fontSize:20,padding:10,color:'white'}}>{item.id}</Text>
+        <Text style={{fontSize:16,padding:10,color:'white'}}>{item.department}</Text>
         </View>
-      </TouchableOpacity>
+      
   );
 
   return (
@@ -53,29 +53,29 @@ export default function Dashboard({navigation}){
       <Text style={styles.text}>Projects OverView</Text>
         <View style={styles.item}>
         <FontAwesome name={'building-o'} size={45} color="#393E46"  style={{paddingHorizontal:12}}/>
-          <View>
-            <Text style={styles.text}>No. of Projects</Text>
+          <View style={{flexDirection:'row'}}>
+            <Text style={styles.text}> No. of Projects - </Text>
             <Text style={styles.text}>6</Text>
           </View>
         </View>
         <View style={styles.item}>
-        <MaterialIcons name={'attach-money'} size={45} color="#393E46"  style={{marginRight:12}}/>
-          <View>
-            <Text style={styles.text}>Contract Value</Text>
-            <Text style={styles.text}>Rs. 40.35 Cr</Text>
+        <MaterialIcons name={'attach-money'} size={45} color="#393E46"  style={{marginRight:1}}/>
+        <View style={{flexDirection:'row'}}>
+            <Text style={styles.text}>  Contract - </Text>
+            <Text style={styles.text}>40.35 Cr</Text>
           </View>
         </View>
         <View style={styles.item}>
         <Ionicons name={'speedometer-outline'} size={45} color="#393E46"  style={{marginRight:12}}/>
-          <View>
-            <Text style={styles.text}>Budget</Text>
-            <Text style={styles.text}>Rs. 31.10 Cr</Text>
+        <View style={{flexDirection:'row'}}>
+            <Text style={styles.text}>Budget - </Text>
+            <Text style={styles.text}>31.10 Cr</Text>
           </View>
         </View>
         <View style={styles.item}>
-        <MaterialCommunityIcons name={'sack-percent'} size={45} color="#393E46"  style={{marginRight:12}}/>
-          <View>
-            <Text style={styles.text}>     Margin    </Text>
+        <MaterialCommunityIcons name={'sack-percent'} size={45} color="#393E46"  style={{marginRight:25}}/>
+        <View style={{flexDirection:'row'}}>
+            <Text style={styles.text}>Margin   -  </Text>
             <Text style={styles.text}>23%</Text>
           </View>
         </View>
@@ -108,18 +108,19 @@ const styles = StyleSheet.create({
     text:{
       fontWeight:'bold',
       fontSize:17,
-      alignSelf:'center'
+      alignSelf:'center',
+      margin:15
     },
     item:{
       flexDirection:'row',
       width:wp('80%'),
       marginVertical:5,
-      alignItems:'center',
+    
       justifyContent:'center'
     },
     button:{
       backgroundColor:'#0065ff',
-      marginTop:8,
+      marginTop:18,
       padding:2,
       borderRadius:10,
       width:wp('50%'),
