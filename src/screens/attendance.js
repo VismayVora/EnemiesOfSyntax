@@ -43,28 +43,18 @@ const Attendance = ({ navigation }) => {
           logoBackgroundColor="yellow"
         />
         <Text style={styles.textStyle}>
-          Please insert any value to generate QR code
+         Scan your QR Code while entering and leaving the premises
         </Text>
-        <TextInput
-          style={styles.textInputStyle}
-          onChangeText={inputText => setInputText(inputText)}
-          placeholder="Enter Any Value"
-          value={inputText}
-        />
         <TouchableOpacity
           style={styles.buttonStyle}
           onPress={() => setQrvalue(inputText)}>
           <Text style={styles.buttonTextStyle}>Generate QR Code</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.buttonStyle} onPress={shareQRCode}>
-          <Text style={styles.buttonTextStyle}>Share QR Code</Text>
-        </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonStyle}
           onPress={() => navigation.navigate('ScanQRCode')}>
           <Text style={styles.buttonTextStyle}>
-            Scan to Join a team
+            Scan 
           </Text>
         </TouchableOpacity>
       </View>
@@ -88,7 +78,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     textAlign: 'center',
-    margin: 10,
+    margin: 25,
   },
   textInputStyle: {
     flexDirection: 'row',
@@ -99,14 +89,10 @@ const styles = StyleSheet.create({
     margin: 30,
   },
   buttonStyle: {
-    backgroundColor: '#51D8C7',
-    borderWidth: 0,
-    color: '#FFFFFF',
-    borderColor: '#51D8C7',
-    alignItems: 'center',
-    borderRadius: 5,
-    marginTop: 30,
-    padding: 10,
+    backgroundColor:'#0065ff',
+    marginTop:20,
+    padding:10,
+    borderRadius:10,
   },
   buttonTextStyle: {
     color: '#FFFFFF',

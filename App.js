@@ -15,6 +15,9 @@ import ScanQRCode from './src/screens/ScanQRCode';
 import Attendance from './src/screens/attendance';
 import Contractorlist from './src/screens/Contractorlist';
 import Details from './src/screens/Details';
+import Login1 from './src/screens/Login1';
+import SignUp1 from './src/screens/SignUp1';
+import Auth1 from './src/screens/auth1';
 // import Drawer from './src/screens/Drawer';
 const Stack = createStackNavigator();
 function App() {
@@ -41,6 +44,19 @@ function App() {
         <Stack.Screen
           name="auth"
           component={Auth}
+          options={{ headerShown: false }}></Stack.Screen>
+          
+        <Stack.Screen
+          name="Login1"
+          component={Login1}
+          options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen
+          name="SignUp1"
+          component={SignUp1}
+          options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen
+          name="auth1"
+          component={Auth1}
           options={{ headerShown: false }}></Stack.Screen>
         <Stack.Screen
           name="bottomtabs"

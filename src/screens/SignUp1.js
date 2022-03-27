@@ -5,22 +5,21 @@ import Textinp from '../components/Textinp';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import LottieView from 'lottie-react-native';
 
-
-function Login({navigation}) {
+function SignUp1({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
-    <LottieView
+       <LottieView
         source={require('../assets/owner.json')}
         autoPlay={true}
         loop={false}
 
         style={styles.animation}
       />
-     
+      
       <Textinp
-        marginTop={10}
+        marginTop={50}
         iconShape="mail"
         placeholder="Email"
         autoComplete="email"
@@ -41,23 +40,10 @@ function Login({navigation}) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-        navigation.navigate('bottomtabs');
-        console.log("Logged In");
-        }}><Text style={styles.textStyle}>Login</Text>
+          navigation.navigate('attendance')
+          console.log("Signed Up");
+      }}><Text style={styles.textStyle}>Sign Up</Text>
       </TouchableOpacity>
-      <Text style={{fontSize:20,margin:5}}>OR</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-            navigation.navigate('auth')
-            console.log("Logged In");
-        }}><Text style={styles.textStyle}>Use Your Fingerprint</Text>
-      </TouchableOpacity>
-      <TouchableOpacity 
-        onPress={()=>navigation.navigate('SignUp')}>
-            <Text style={{fontSize:15,margin:30}}>Don't have an account? Signup</Text>
-        </TouchableOpacity>
-        
     </View>
   );
 }
@@ -71,32 +57,30 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
+    // marginTop: 25,
     alignSelf:'center',
-    fontSize:18,
-  },
-  animation: {
-    width: 200,
-    height: 200,
-    margin: 25,
-    marginLeft: 20
+    fontSize:20,
   },
   text:{
     fontSize:24,
     fontWeight:'bold',
     alignSelf:'flex-start',
-    
-    marginVertical:10,
+    marginBottom:10,
     marginLeft:wp('10%'),
+},
+animation: {
+  width: 200,
+  height: 200,
+  margin: 25,
+  marginLeft: 20
 },
     button:{
         backgroundColor:'#0065ff',
-        margin:10,
+        marginTop:20,
         padding:10,
         borderRadius:10,
         width:wp('85%')
     }
 });
 
-export default Login;
+export default SignUp1;

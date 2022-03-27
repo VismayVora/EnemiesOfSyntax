@@ -6,7 +6,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import LottieView from 'lottie-react-native';
 
 
-function Login({navigation}) {
+function Login1({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -45,7 +45,7 @@ function Login({navigation}) {
         console.log("Logged In");
         }}><Text style={styles.textStyle}>Login</Text>
       </TouchableOpacity>
-      <Text style={{fontSize:20,margin:5}}>OR</Text>
+      <Text style={{fontSize:20}}>OR</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
@@ -54,7 +54,7 @@ function Login({navigation}) {
         }}><Text style={styles.textStyle}>Use Your Fingerprint</Text>
       </TouchableOpacity>
       <TouchableOpacity 
-        onPress={()=>navigation.navigate('SignUp')}>
+        onPress={()=>navigation.navigate('SignUp1')}>
             <Text style={{fontSize:15,margin:30}}>Don't have an account? Signup</Text>
         </TouchableOpacity>
         
@@ -92,11 +92,11 @@ const styles = StyleSheet.create({
 },
     button:{
         backgroundColor:'#0065ff',
-        margin:10,
+        margin:15,
         padding:10,
         borderRadius:10,
         width:wp('85%')
     }
 });
 
-export default Login;
+export default Login1;
