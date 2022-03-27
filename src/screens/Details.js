@@ -10,23 +10,6 @@ export default function Details({navigation,route}){
     const desc=route.params.desc;
     const name=route.params.name;
     console.log(route.params);
-    const DATA = [
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-          title: 'Contractor 1',
-          department: 'Dept 1'
-        },
-        {
-          id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-          title: 'Contractor 2',
-          department: 'Dept 2'
-        },
-        {
-          id: '58694a0f-3da1-471f-bd96-145571e29d72',
-          title: 'Contractor 3',
-          department: 'Dept 3'
-        },
-      ];
 
     const [data,setData]=useState([]);
     const [loading,setLoading]=useState(true);
@@ -63,7 +46,8 @@ export default function Details({navigation,route}){
         <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
             <View style={styles.item}>
                 <View>
-                    <Text style={{fontSize:16}}>Email: {item.contractor}</Text>
+                    <Text style={{fontSize:16,color:"yellow"}}>Name: {item.name}</Text>
+                    <Text style={{fontSize:16,color:'yellow'}}>Email: {item.contractor}</Text>
                     {/* <Text style={{fontSize:16}}>{item.department}</Text> */}
                 </View>
                 
@@ -77,16 +61,16 @@ export default function Details({navigation,route}){
       <View>
         <View style={styles.head}>
             <View style={{flexDirection:'row'}}>
-                <Text style={{fontSize:20,fontWeight:'bold'}}>Project Name: </Text>
-                <Text style={{fontSize:20}}>{name}</Text>
+                <Text style={{fontSize:20,fontWeight:'bold',color:'yellow'}}>Project Name: </Text>
+                <Text style={{fontSize:20,color:'white'}}>{name}</Text>
             </View>
             <View style={{flexDirection:'row'}}>
-                <Text style={{fontSize:16,fontWeight:'bold'}}>Location: </Text>
-                <Text style={{fontSize:16}}>{location}</Text>
+                <Text style={{fontSize:16,fontWeight:'bold',color:'yellow'}}>Location: </Text>
+                <Text style={{fontSize:16,color:'white'}}>{location}</Text>
             </View>
             <View style={{flexDirection:'row'}}>
-                <Text style={{fontSize:16,fontWeight:'bold'}}>Description: </Text>
-                <Text style={{fontSize:16}}>{desc}</Text>
+                <Text style={{fontSize:16,fontWeight:'bold',color:'yellow'}}>Description: </Text>
+                <Text style={{fontSize:16,color:'white',width:wp('58%')}}>{desc}</Text>
             </View>
             {/* <Text style={{fontSize:16}}>Location: {location}</Text> */}
         </View>
@@ -105,7 +89,7 @@ export default function Details({navigation,route}){
             labels: [ 'Monday','Tuesday','Wednesday','Thursday','Friday'],
             datasets: [
             {
-            data: [20, 40, 30, 10, 50],
+            data: [8, 7, 9, 10, 8],
             },
             ],
             }}

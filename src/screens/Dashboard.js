@@ -5,6 +5,7 @@ import {URL,token} from '../utils/link'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const DATA = [
     {
@@ -39,7 +40,7 @@ export default function Dashboard({navigation}){
   return (
     <SafeAreaView style={styles.container}>
       <View>
-      <Text style={styles.text}>Project OverView</Text>
+      <Text style={styles.text}>Projects OverView</Text>
         <View style={styles.item}>
         <FontAwesome name={'building-o'} size={50} color="#393E46"  style={{paddingHorizontal:12}}/>
           <View>
@@ -61,6 +62,13 @@ export default function Dashboard({navigation}){
             <Text style={styles.text}>Rs. 31.10 Cr</Text>
           </View>
         </View>
+        <View style={styles.item}>
+        <MaterialCommunityIcons name={'sack-percent'} size={50} color="#393E46"  style={{marginRight:12}}/>
+          <View>
+            <Text style={styles.text}>     Margin    </Text>
+            <Text style={styles.text}>23%</Text>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -75,6 +83,7 @@ const styles = StyleSheet.create({
     text:{
       fontWeight:'bold',
       fontSize:20,
+      alignSelf:'center'
     },
     item:{
       flexDirection:'row',

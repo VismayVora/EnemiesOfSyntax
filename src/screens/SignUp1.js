@@ -11,7 +11,7 @@ function SignUp1({navigation}) {
   return (
     <View style={styles.container}>
        <LottieView
-        source={require('../assets/owner.json')}
+        source={require('../assets/contractor.json')}
         autoPlay={true}
         loop={false}
 

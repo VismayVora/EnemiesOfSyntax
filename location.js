@@ -78,9 +78,9 @@ export default function Location({navigation}) {
       ))}
       {visible?<Marker coordinate={region} onPress={()=>navigation.navigate("AddProject",{loc:region})} pinColor="green" title="New Project"/>:<></>}
       </MapView>
-      <View style={{flexDirection:'row'}}>
-        <TouchableOpacity style={styles.button} onPress={() => selectLocation()}><Text>Add A Project</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => getProjects()}><Text>Refresh</Text></TouchableOpacity>
+      <View>
+        <TouchableOpacity style={styles.button} onPress={() => selectLocation()}><Text style={{color:'white',fontSize:18}}>Add A Project</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => getProjects()}><Text style={{color:'white',fontSize:16}}>Refresh</Text></TouchableOpacity>
       </View>
       {/* <Text style={styles.text}>Current latitude{region.latitude}</Text>
       <Text style={styles.text}>Current longitude{region.longitude}</Text> */}
@@ -102,6 +102,10 @@ const styles = StyleSheet.create({
     backgroundColor: "lightblue",
   },
   button:{
-    marginHorizontal:10,
+    width:150,
+    alignItems:'center',
+    margin:10,
+    backgroundColor:'#0065ff',
+    borderRadius:7,
   }
 });
