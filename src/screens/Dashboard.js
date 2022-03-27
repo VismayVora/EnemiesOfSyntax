@@ -89,6 +89,12 @@ export default function Dashboard({navigation}){
         renderItem={renderItem}
       />
       </View>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.navigate('Login')
+      }}><Text style={{color:'white',alignSelf:'center',fontSize:18}}>Log Out</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -101,7 +107,7 @@ const styles = StyleSheet.create({
     },
     text:{
       fontWeight:'bold',
-      fontSize:19,
+      fontSize:17,
       alignSelf:'center'
     },
     item:{
@@ -110,6 +116,17 @@ const styles = StyleSheet.create({
       marginVertical:5,
       alignItems:'center',
       justifyContent:'center'
-    }
+    },
+    button:{
+      backgroundColor:'#0065ff',
+      marginTop:8,
+      padding:2,
+      borderRadius:10,
+      width:wp('50%'),
+      height:50,
+      alignSelf:'center',
+      alignItems:'center',
+      justifyContent:'center',
+  }
   });
   
