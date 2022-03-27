@@ -29,9 +29,15 @@ export default function Dashboard({navigation}){
   const getData=async()=>{
     setLoading(true);
     try{
-        const result=await fetch(URL+'/contractor_attendance/1/',{
-            method:'GET',
-            headers: {'Authorization': 'Token '+token},
+        const result=await fetch(URL+'/contractor_attendance/',{
+            method:'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Token '+token},
+            body: JSON.stringify({
+              "pk":1,
+              "date":"2022-03-26",
+            }),
         });
         const json= await result.json();
         console.log(json);

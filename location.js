@@ -67,13 +67,13 @@ export default function Location({navigation}) {
       >
       <Marker coordinate={mumbaiRegion} title="Mumbai" onPress={()=>navigation.navigate('Details')}/>
       {data.map((item,index)=>(
-        <Marker key={index} title={item.name} coordinate={{
+        <Marker key={index} title={item.name+item.id} coordinate={{
           latitude: item.latitude,
           longitude: item.longitude,
           latitudeDelta: 0.01,
           longitudeDelta: 0.01,
         }}
-        onPress={()=>navigation.navigate('Details')}
+        onPress={()=>navigation.navigate('Details',{id:item.id,loc:item.location_name,desc:item.description,name:item.name})}
         />
       ))}
       {visible?<Marker coordinate={region} onPress={()=>navigation.navigate("AddProject",{loc:region})} pinColor="green" title="New Project"/>:<></>}

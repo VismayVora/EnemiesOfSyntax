@@ -7,6 +7,7 @@ import Home from './src/screens/Home';
 import Dashboard from './src/screens/Dashboard';
 import Location from './location';
 import Contractorlist from './src/screens/Contractorlist';
+import Report from './src/screens/Report';
 // import Events from './Events';
 // import HomeNavigator from './HomeNavigator';
 // import Dashboard from './dashboard';
@@ -33,24 +34,12 @@ const BottomTabs = ({ route }) => {
         options={{
           headerShown: false,
           tabBarLabel: 'Locations',
-          tabBarColor: '#009387',
+          tabBarColor: 'blue',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-home" color={color} size={26} />
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Events"
-        component={Events}
-        options={{
-          headerShown: false,
-          tabBarLabel: 'Events',
-          tabBarColor: '#1f65ff',
-          tabBarIcon: ({ color }) => (
-            <Icon name="card-outline" color={color} size={26} />
-          ),
-        }}
-      /> */}
       <Tab.Screen
         name="Dashboard"
         options={{
@@ -66,6 +55,18 @@ const BottomTabs = ({ route }) => {
         component={Dashboard}
       />
       <Tab.Screen
+        name="Report"
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Report',
+          tabBarColor: '#1f65ff',
+          tabBarIcon: ({ color }) => (
+            <Icon name="analytics-sharp" color={color} size={26} />
+          ),
+        }}
+        component={Report}
+      />
+      <Tab.Screen
         name="Contractorlist"
         component={Contractorlist}
         options={{
@@ -77,18 +78,6 @@ const BottomTabs = ({ route }) => {
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Profile"
-        options={{
-          headerShown: false,
-          tabBarLabel: 'Profile',
-          tabBarColor: '#1f65ff',
-          tabBarIcon: ({ color }) => (
-            <Icon name="ios-person" color={color} size={26} />
-          ),
-        }}
-        component={Profile}
-      /> */}
     </Tab.Navigator>
   );
 };

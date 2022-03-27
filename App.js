@@ -15,6 +15,7 @@ import ScanQRCode from './src/screens/ScanQRCode';
 import Attendance from './src/screens/attendance';
 import Contractorlist from './src/screens/Contractorlist';
 import Details from './src/screens/Details';
+// import Drawer from './src/screens/Drawer';
 const Stack = createStackNavigator();
 function App() {
   useEffect(() => {
@@ -73,6 +74,10 @@ function App() {
           name="Details"
           component={Details}
           options={{ headerShown: false }}></Stack.Screen>
+          {/* <Stack.Screen
+          name="Drawer"
+          component={Drawer}
+          options={{ headerShown: false }}></Stack.Screen> */}
         </Stack.Navigator>
     </NavigationContainer>
     </>
