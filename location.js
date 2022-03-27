@@ -67,7 +67,7 @@ export default function Location({navigation}) {
       >
       <Marker coordinate={mumbaiRegion} title="Mumbai" onPress={()=>navigation.navigate('Details')}/>
       {data.map((item,index)=>(
-        <Marker key={index} title={item.name+item.id} coordinate={{
+        <Marker key={index} title={item.name} coordinate={{
           latitude: item.latitude,
           longitude: item.longitude,
           latitudeDelta: 0.01,

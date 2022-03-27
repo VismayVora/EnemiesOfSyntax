@@ -60,7 +60,7 @@ export default function Details({navigation,route}){
     <SafeAreaView style={styles.container}>
       <View>
         <View style={styles.head}>
-            <View style={{flexDirection:'row'}}>
+            <View style={{flexDirection:'row',width:wp('58%')}}>
                 <Text style={{fontSize:20,fontWeight:'bold',color:'yellow'}}>Project Name: </Text>
                 <Text style={{fontSize:20,color:'white'}}>{name}</Text>
             </View>
