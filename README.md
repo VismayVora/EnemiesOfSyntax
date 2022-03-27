@@ -33,5 +33,5 @@ App Preview:
   <img src = "https://github.com/dishantzaveri/EnemiesOfSyntax/blob/backend/assets/9.jpeg?raw=true" width = 200 height =500 />
  <img src = "https://github.com/dishantzaveri/EnemiesOfSyntax/blob/backend/assets/10.jpeg?raw=true" width = 200 height = 500 />
  <img src = "https://github.com/dishantzaveri/EnemiesOfSyntax/blob/backend/assets/11.jpeg?raw=true" width = 200 height = 500 />
- <img src = "https://github.com/dishantzaveri/EnemiesOfSyntax/blob/backend/assets/12.jpeg?raw=true" width = 200 height = 500 />
+
 
