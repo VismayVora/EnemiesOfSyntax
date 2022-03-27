@@ -105,7 +105,7 @@ class ContractorAttendanceDetail(mixins.RetrieveModelMixin,
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
 
-    def put(self, request, *args, **kwargs):
+    def patch(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
@@ -121,7 +121,7 @@ class WorkerAttendanceDetail(mixins.RetrieveModelMixin,
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
 
-    def put(self, request, *args, **kwargs):
+    def patch(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
@@ -132,11 +132,41 @@ class TaskViewSet(viewsets.ModelViewSet):
 	serializer_class = TaskSerializer
 	permission_classes = [permissions.IsAuthenticated]
 
-	def get_queryset(self,pk):
-		return Task.objects.filter(project_id=pk)
+	def get_queryset(self):
+		return Task.objects.all()
 	
 	# def perform_create(self,serializer):
 	# 	serializer.save(owner = self.request.user)
+	
+	def update(self, request, *args, **kwargs):
+		kwargs['partial'] = True
+		return super().update(request, *args, **kwargs)
+
+class ContractorViolationViewset(viewsets.ModelViewSet):
+	queryset = ContractorViolation.objects.all()
+	serializer_class = ContractorViolationSerializer
+	permission_classes = [permissions.IsAuthenticated]
+
+	def get_queryset(self):
+		return ContractorViolation.objects.all()
+	
+	def perform_create(self,serializer):
+		serializer.save(owner = self.request.user)
+	
+	def update(self, request, *args, **kwargs):
+		kwargs['partial'] = True
+		return super().update(request, *args, **kwargs)
+
+class WorkerViolationViewset(viewsets.ModelViewSet):
+	queryset = WorkerViolation.objects.all()
+	serializer_class = WorkerViolationSerializer
+	permission_classes = [permissions.IsAuthenticated]
+
+	def get_queryset(self):
+		return WorkerViolation.objects.all()
+	
+	def perform_create(self,serializer):
+		serializer.save(owner = self.request.user)
 	
 	def update(self, request, *args, **kwargs):
 		kwargs['partial'] = True

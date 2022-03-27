@@ -23,15 +23,19 @@ class ContractorAttendance(models.Model):
     exit_time = models.TimeField()
     total_time = models.IntegerField()
     contractor = models.ForeignKey(Contractor,on_delete=models.CASCADE)
+    name = models.CharField(max_length = 50,null=True,blank=True)
     project = models.ForeignKey(Project,on_delete=models.CASCADE)
 
 class WorkerAttendance(models.Model):
     date = models.DateField(default=datetime.date.today)
-    enter_time = models.TimeField()
-    exit_time = models.TimeField()
-    total_time = models.IntegerField()
+    enter_time = models.TimeField(null=True,blank=True)
+    exit_time = models.TimeField(null=True,blank=True)
+    total_time = models.IntegerField(null=True,blank=True)
     worker = models.ForeignKey(Worker,on_delete=models.CASCADE)
+    name = models.CharField(max_length = 50, null=True, blank=True)
     project = models.ForeignKey(Project,on_delete=models.CASCADE,null=True,blank=True)
+    department = models.CharField(max_length = 50, null=True,blank=True)
+    status = models.CharField(max_length=70,null=True,blank=True)
 
 class Task(models.Model):
     owner = models.ForeignKey(User, on_delete = models.CASCADE)
@@ -47,3 +51,21 @@ class Task(models.Model):
     
     class Meta:
         ordering = ['status']
+
+class ContractorViolation(models.Model):
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    helmet = models.CharField(max_length = 30, default="Helmet Violation")
+    mask = models.CharField(max_length = 30, default="Mask Violation")
+    photo = models.ImageField()
+    contractor = models.ForeignKey(Contractor,on_delete=models.CASCADE)
+    name = models.CharField(max_length = 30, null=True,blank=True)
+
+class WorkerViolation(models.Model):
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    helmet = models.CharField(max_length = 30, default="Helmet Violation")
+    mask = models.CharField(max_length = 30, default="Mask Violation")
+    photo = models.ImageField()
+    worker = models.ForeignKey(Contractor,on_delete=models.CASCADE)
+    name = models.CharField(max_length = 30, null=True,blank=True)

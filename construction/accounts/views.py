@@ -9,6 +9,7 @@ from .serializers import *
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 from rest_framework.decorators import action,api_view
+from rest_framework import generics
 
 # from django.http import JsonResponse
 # from rest_framework.permissions import AllowAny
@@ -68,3 +69,24 @@ class LoginAPI(GenericAPIView):
 			token = Token.objects.get(user=user)
 			return Response({'token' : token.key,'email' : user.email,'name' : user.name},status = status.HTTP_200_OK)
 		return Response('Invalid Credentials',status = status.HTTP_404_NOT_FOUND)
+
+class WorkersList(generics.ListCreateAPIView):
+    queryset = Worker.objects.all()
+    serializer_class = WorkerRegisterSerializer
+
+class WorkersViewSet(viewsets.ModelViewSet):
+	queryset = Worker.objects.all()
+	serializer_class = WorkerRegisterSerializer
+	permission_classes = [permissions.IsAuthenticated]
+
+	def get_queryset(self):
+		return Worker.objects.all()
+	
+	def perform_create(self,serializer):
+		serializer.save(owner = self.request.user)
+	
+	def update(self, request, *args, **kwargs):
+		kwargs['partial'] = True
+		return super().update(request, *args, **kwargs)
+
+	

@@ -10,6 +10,9 @@ router = DefaultRouter()
 router.register(r'create_project', views.OwnerProjectDetails)
 router.register(r'contractor_projects', views.ContractorProjectDetails)
 router.register(r'task', views.TaskViewSet)
+router.register(r'contractorviolation', views.ContractorViolationViewset)
+router.register(r'workerviolation', views.WorkerViolationViewset)
+
 
 urlpatterns = [
     url('', include(router.urls)),
