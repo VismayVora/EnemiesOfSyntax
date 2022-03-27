@@ -40,7 +40,7 @@ function SignUp1({navigation}) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          navigation.navigate('attendance')
+          navigation.navigate('Profile')
           console.log("Signed Up");
       }}><Text style={styles.textStyle}>Sign Up</Text>
       </TouchableOpacity>

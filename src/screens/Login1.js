@@ -41,7 +41,7 @@ function Login1({navigation}) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-        navigation.navigate('bottomtabs');
+        navigation.navigate('Profile');
         console.log("Logged In");
         }}><Text style={styles.textStyle}>Login</Text>
       </TouchableOpacity>

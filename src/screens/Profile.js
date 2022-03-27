@@ -83,10 +83,6 @@ export default function Profile(){
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Text>Name:</Text>
-        <Text>Department:</Text>
-      </View>
       <Photo/>
     </SafeAreaView>
   );
