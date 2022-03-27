@@ -7,6 +7,8 @@ import { RegisterO } from './pages/RegisterOwner'
 import { RegisterC } from './pages/RegisterContractor'
 import { Projects } from './pages/Projects'
 import { Project } from './pages/Project'
+import { WorkerAttendance } from './pages/WorkerAttendance'
+import { WorkerDetail } from './pages/WorkerDetail'
 
 const App = () => {
   return (
@@ -18,8 +20,10 @@ const App = () => {
           <Route path='/login-contractor' element={<LoginC />} />
           <Route path='/register-owner' element={<RegisterO />} />
           <Route path='/register-contractor' element={<RegisterC />} />
+          <Route path='/todays-attendance/:attendanceId' element={<WorkerAttendance />} />
           <Route path='/projects' element={<Projects />} />
-          <Route path='/project/:id' element={<Project />} />
+          <Route path='/project/:projectId' element={<Project />} />
+          <Route path='/worker/:workerId' element={<WorkerDetail />} />
         </Routes>
       </Router>
     </>

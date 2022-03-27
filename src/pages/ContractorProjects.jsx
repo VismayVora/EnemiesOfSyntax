@@ -6,7 +6,7 @@ import { GlobalContext } from '../context/GlobalContext';
 import { Spinner } from '../components/Spinner'
 
 export const ProjectTile = ({ project }) => (
-  <Link to={`/project/${project.id}`} key={project.id} className="border-[1px] border-gray-400 rounded-xl flex px-8 py-4 gap-4 min-w-[300px]">
+  <Link to={`/project/${project.id}`} key={project.id} className="border-[1px] border-gray-400 rounded-xl flex px-8 py-4 gap-4 min-w-[300px] shadow-lg hover:sadow-xl hover:border-[2px]">
     <div className="bg-red-400 h-16 w-16 rounded-full"></div>
     <div className="flex flex-col justify-start items-start">
       <h1 className="text-2xl font-bold">{project.name}</h1>
@@ -82,13 +82,13 @@ export const ContractorProjects = () => {
       </nav>
       <div className="p-4">
         <TabPanel hidden={selectedTab !== 'Ongoing'}>
-          <div className="flex gap-6">
-            {projects?.filter(project => !project.completed)?.map(project => <ProjectTile project={project}/>)}
+          <div className="flex gap-6 min-h-[100px]">
+            {projects?.filter(project => !project.completed) ? projects?.filter(project => !project.completed)?.map(project => <ProjectTile project={project} />) : <h1 className='text-3xl font-semibold'>No Projects</h1>}
           </div>
         </TabPanel>
         <TabPanel hidden={selectedTab !== 'Completed'}>
-          <div className="flex gap-6">
-            {projects?.filter(project => project.completed)?.map(project => <ProjectTile project={project}/>)}
+          <div className="flex justify-center items-center gap-6 min-h-[100px]">
+            {projects?.filter(project => project.completed)===[] ? projects?.filter(project => project.completed)?.map(project => <ProjectTile project={project} />) : <h1 className='text-3xl font-semibold'>No Projects</h1>}
           </div>
         </TabPanel>
       </div>

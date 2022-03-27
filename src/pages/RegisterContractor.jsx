@@ -10,7 +10,7 @@ export const RegisterC = () => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [pass, setPass] = useState('')
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('civil')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const onSubmit = e => {
@@ -47,7 +47,6 @@ export const RegisterC = () => {
   }
   return (
     <div className='flex flex-col justify-center items-center h-screen gap-4'>
-      <Link to='/' className="text-sm font-semibold text-cyan-600">Home</Link>
       <h1 className="text-4xl font-semibold">Register as Contractor</h1>
       <form className='flex flex-col justify-center items-center w-[50%] gap-6' onSubmit={onSubmit}>  
         <input className='px-4 py-2 rounded-xl border-[2px] border-black w-[50%]' type="text" value={name} onChange={e => setName(e.target.value)} placeholder='Enter Name...' />
@@ -60,7 +59,7 @@ export const RegisterC = () => {
           <option value="plumbing">Plumbing</option>
         </select>
         {error ? <h1>{error}</h1> : ' '}
-        <button className='px-4 py-2 rounded-xl bg-cyan-600' type="submit">Login</button>
+        <button className='px-4 py-2 rounded-xl bg-cyan-600' type="submit">Register</button>
       </form>
       <Link to='/login-contractor' className="text-sm font-semibold text-cyan-600">Already have an account</Link>
     </div>

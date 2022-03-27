@@ -40,11 +40,10 @@ export const LoginC = () => {
   }
   return (
     <div className='flex flex-col justify-center items-center h-screen gap-4'>
-      <Link to='/' className="text-sm font-semibold text-cyan-600">Home</Link>
       <h1 className="text-4xl font-semibold">Login as Contractor</h1>
       <form className='flex flex-col justify-center items-center w-[50%] gap-6' onSubmit={onSubmit}>
-        <input className='px-4 py-2 rounded-xl border-[2px] border-black' type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='Enter Email...' />
-        <input className='px-4 py-2 rounded-xl border-[2px] border-black' type="password" value={pass} onChange={e => setPass(e.target.value)} placeholder='Enter Password...' />
+        <input className='px-4 py-2 rounded-xl border-[2px] border-black w-[50%]' type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='Enter Email...' />
+        <input className='px-4 py-2 rounded-xl border-[2px] border-black w-[50%]' type="password" value={pass} onChange={e => setPass(e.target.value)} placeholder='Enter Password...' />
         <button className='px-4 py-2 rounded-xl bg-cyan-600' type="submit">Login</button>
       </form>
       <Link to='/register-contractor' className="text-sm font-semibold text-cyan-600">Create new account</Link>

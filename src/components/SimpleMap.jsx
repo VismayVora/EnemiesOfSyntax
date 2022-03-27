@@ -12,7 +12,7 @@ mapboxGl.accessToken =
 export const SimpleMap = ({ h, projects }) => {
   const height = +h
   return (
-    <div>
+    <div className='rounded-xl'>
       <Map
         initialViewState={{
           latitude: 19.07,  
@@ -23,7 +23,7 @@ export const SimpleMap = ({ h, projects }) => {
         mapStyle="mapbox://styles/mapbox/streets-v11"
         mapboxAccessToken={MAPBOX_TOKEN}
       >
-        {projects.isArray() ? projects?.map(project => (
+        {Array.isArray(projects) ? projects?.map(project => (
           <Marker longitude={project.longitude} latitude={project.latitude} anchor='bottom-left'>
             <div>
               <div className="p-2 bg-white border-[1px] rounded border-gray-400">
