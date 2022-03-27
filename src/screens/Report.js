@@ -6,6 +6,8 @@ import { width } from '../components/Constants';
 export default function Report({ navigation }) {
   const widthAndHeight = 250;
   const series = [123, 321, 123, 789, 537,444];
+  const series1 = [ 789, 537,444,123, 321, 123,];
+  const series2 = [537,444,123, 537,444,123,];
   const sliceColor = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800','#000000'];
 
   return (
@@ -48,7 +50,7 @@ export default function Report({ navigation }) {
         </View>
         <PieChart
           widthAndHeight={widthAndHeight}
-          series={series}
+          series={series1}
           sliceColor={sliceColor}
           
         />
@@ -69,7 +71,7 @@ export default function Report({ navigation }) {
         </View>
         <PieChart
           widthAndHeight={widthAndHeight}
-          series={series}
+          series={series2}
           sliceColor={sliceColor}
         
         />

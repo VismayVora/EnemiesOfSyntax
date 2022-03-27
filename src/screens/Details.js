@@ -112,8 +112,8 @@ export default function Details({navigation,route}){
             width={Dimensions.get('window').width - 16}
             height={220}
             yAxisLabel={''} chartConfig={{
-            backgroundColor: '#10c9bd',
-            backgroundGradientFrom: '#f2b40a',
+            backgroundColor: '#0065ff',
+            backgroundGradientFrom: '#0065ff',
             backgroundGradientTo: '#f2b40a',
             decimalPlaces: 2,
             color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
@@ -136,14 +136,16 @@ const styles = StyleSheet.create({
       flex: 1,
       marginTop: hp('2%'),
       marginHorizontal:wp('2%'),
+      backgroundColor:'#FFFFFF'
     },
     head:{
-        backgroundColor:'#f9c2ff',
-        borderRadius:5,
-        marginBottom:10,
+        backgroundColor:'#0065ff',
+        borderRadius:10,
+        margin:20,
+        padding:20,
     },
     item: {
-      backgroundColor: '#f9c2ff',
+      backgroundColor: '#0065ff',
       padding: 20,
       marginVertical: 8,
       marginHorizontal: 8,

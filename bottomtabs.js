@@ -23,8 +23,8 @@ const BottomTabs = ({ route }) => {
 
       independent={true}
       screenOptions={{
-        tabBarActiveBackgroundColor: "#00CBA9",
-        tabBarInactiveBackgroundColor: "#00CBA9",
+        tabBarActiveBackgroundColor: "#FFFFFF",
+        tabBarInactiveBackgroundColor: "#FFFFFF",
 
       }}
     >
@@ -59,7 +59,7 @@ const BottomTabs = ({ route }) => {
         options={{
           headerShown: false,
           tabBarLabel: 'Report',
-          tabBarColor: '#1f65ff',
+          tabBarColor: '#000000',
           tabBarIcon: ({ color }) => (
             <Icon name="analytics-sharp" color={color} size={26} />
           ),

@@ -13,7 +13,7 @@ export default function Splash({ navigation }) {
         style={styles.animation}
       />
       <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        {/* <Image source={require('../assets/sportify.jpeg')} style={styles.image} /> */}
+        
         <Text style={styles.image}>Login</Text>
       </TouchableOpacity>
     </View>
@@ -22,7 +22,7 @@ export default function Splash({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#019267',
+    backgroundColor: '#FFFFFF',
 
   },
   animation: {

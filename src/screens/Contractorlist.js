@@ -79,19 +79,15 @@ export default function Contractorlist({ navigation }) {
           <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
             <View style={{ flexDirection: "row" }}>
 
-              <Text style={styles.name}>SPORT - {item.sports}</Text>
-              <Icon name="qr-code-outline" onPress={() => {
-
-                navigation.navigate('QRCode');
-              }} size={30} color="#73788B" style={{ marginLeft: 100 }} />
+              <Text style={styles.name}>NAME- {item.name}</Text>
+              
 
             </View>
           </View>
-          <Text style={styles.post}>NAME - {item.name}</Text>
+          <Text style={styles.post}>PHONE NUMBER - {item.phone_no}</Text>
+          <Text style={styles.post}>EMAIL - {item.email}</Text>
           <Text style={styles.post}>DEPARTMENT - {item.department}</Text>
-          <ImageBackground source={{
-           uri:URL+ item.photo,
-          }} style={styles.postImage} resizeMode="stretch" />
+         
 
 
         </View>
@@ -154,7 +150,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10
   },
   feedItem: {
-    backgroundColor: "#000000",
+    backgroundColor: "#0065ff",
     borderRadius: 5,
     padding: 8,
     flexDirection: "row",
@@ -195,12 +191,14 @@ const styles = StyleSheet.create({
     padding: 10,
     flex: 1,
     borderBottomColor: "black",
-    backgroundColor: '#00CBA9',
+    backgroundColor: '#0065ff',
+    color: "#FFFFFF",
+
   },
   inputCard: {
     margin: 25,
     flexDirection: 'row',
-    backgroundColor: "#000000",
+    
     alignItems: 'center',
     borderRadius: 5,
     zIndex: 100,
