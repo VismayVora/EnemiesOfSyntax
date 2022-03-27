@@ -24,7 +24,7 @@ function App() {
   return (
     <><Toast ref={(ref)=>Toast.setRef(ref)}/>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Report" independent={true}>
+      <Stack.Navigator initialRouteName="Splash" independent={true}>
         <Stack.Screen
           name="Splash"
           component={Splash}

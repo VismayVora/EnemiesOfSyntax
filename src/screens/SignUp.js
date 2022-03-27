@@ -3,14 +3,21 @@ import {View, StyleSheet, Text, Button, TouchableOpacity,TextInput,Image} from '
 import PasswordInput from '../components/PassInput';
 import Textinp from '../components/Textinp';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import LottieView from 'lottie-react-native';
 
-function SignUp() {
+function SignUp({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Sign Up</Text>
-      {/* <Image source={require('../utils/undraw_Login_re_4vu2.png')} style={{height:110,width:210}}/> */}
+       <LottieView
+        source={require('../assets/owner.json')}
+        autoPlay={true}
+        loop={false}
+
+        style={styles.animation}
+      />
+      
       <Textinp
         marginTop={50}
         iconShape="mail"
@@ -33,9 +40,9 @@ function SignUp() {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-        //   onLogin(email, password);
-        console.log("Signed Up")
-        }}><Text style={styles.textStyle}>Sign Up</Text>
+          navigation.navigate('bottomtabs')
+          console.log("Signed Up");
+      }}><Text style={styles.textStyle}>Sign Up</Text>
       </TouchableOpacity>
     </View>
   );
@@ -46,6 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:'#FFFFFF'
   },
   textStyle: {
     color: 'white',
@@ -59,6 +67,12 @@ const styles = StyleSheet.create({
     alignSelf:'flex-start',
     marginBottom:10,
     marginLeft:wp('10%'),
+},
+animation: {
+  width: 200,
+  height: 200,
+  margin: 25,
+  marginLeft: 20
 },
     button:{
         backgroundColor:'#0065ff',

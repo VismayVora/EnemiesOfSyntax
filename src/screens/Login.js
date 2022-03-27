@@ -3,14 +3,22 @@ import {View, StyleSheet, Text, Button, TouchableOpacity,TextInput,Image} from '
 import PasswordInput from '../components/PassInput';
 import Textinp from '../components/Textinp';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import LottieView from 'lottie-react-native';
+
 
 function Login({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
-      {/* <Image source={require('../utils/undraw_Login_re_4vu2.png')} style={{height:150,width:210}}/> */}
-      <Text style={styles.text}>Login</Text>
+    <LottieView
+        source={require('../assets/owner.json')}
+        autoPlay={true}
+        loop={false}
+
+        style={styles.animation}
+      />
+     
       <Textinp
         marginTop={10}
         iconShape="mail"
@@ -59,17 +67,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:'#FFFFFF'
   },
   textStyle: {
     color: 'white',
-    // marginTop: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
     alignSelf:'center',
     fontSize:18,
+  },
+  animation: {
+    width: 200,
+    height: 200,
+    margin: 25,
+    marginLeft: 20
   },
   text:{
     fontSize:24,
     fontWeight:'bold',
     alignSelf:'flex-start',
+    
     marginVertical:10,
     marginLeft:wp('10%'),
 },
