@@ -73,22 +73,20 @@ export default function Contractorlist({ navigation }) {
 
   const renderItem = ({ item }) => {
     return (
+      <TouchableOpacity onPress={() => {
+        navigation.navigate('Report')
+       
+    }}>
       <View style={styles.feedItem} elevation={15}>
-        <TouchableOpacity onPress={() => {
-            navigation.navigate('Report')
-           
-        }}>
-        <ImageBackground source={{
+        
+        <View>
+          <ImageBackground source={{
            uri:URL+ item.photo,
           }} style={styles.avatar} resizeMode="stretch" />
+        </View>
         <View style={{ flex: 1 }}>
           <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-            <View style={{ flexDirection: "row" }}>
-
               <Text style={styles.name}>NAME- {item.name}</Text>
-              
-
-            </View>
           </View>
           <Text style={styles.post}>CONTACT - {item.phone_no}</Text>
           <Text style={styles.post}>EMAIL - {item.email}</Text>
@@ -96,7 +94,7 @@ export default function Contractorlist({ navigation }) {
          
           <View style={{backgroundColor:'yellow',marginVertical:12,borderRadius:7}}>
           <Stars
-            default={2.5}
+            default={item.rating}
             count={5}
             half={true}
             // starSize={100} 
@@ -107,8 +105,9 @@ export default function Contractorlist({ navigation }) {
         </View>
 
         </View>
-        </TouchableOpacity>
+      
       </View>
+        </TouchableOpacity>
 
     );
   };
@@ -131,7 +130,6 @@ export default function Contractorlist({ navigation }) {
         keyExtractor={({ id }) => id}
         contentContainerStyle={{}}
         renderItem={renderItem}
-
       />
 
     </View>
@@ -176,8 +174,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 10,
   },
   avatar: {
-    width: 46,
-    height: 46,
+    width: 50,
+    height: 50,
     borderRadius: 20,
     marginRight: 16
   },

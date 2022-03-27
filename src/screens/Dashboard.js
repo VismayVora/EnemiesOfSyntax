@@ -8,20 +8,30 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const DATA = [
+  {
+    id: 'Project Id',
+    title: 'Project 3',
+    department: '% Complete'
+  },
     {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'Contractor 1',
-      department: 'Dept 1'
+      id: '1011',
+      title: 'Project 1',
+      department: '85%'
     },
     {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Contractor 2',
-      department: 'Dept 2'
+      id: '1123',
+      title: 'Project 2',
+      department: '81%'
     },
     {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Contractor 3',
-      department: 'Dept 3'
+      id: '1080',
+      title: 'Project 3',
+      department: '65%'
+    },
+    {
+      id: '1220',
+      title: 'Project 4',
+      department: '55%'
     },
   ];
 
@@ -30,9 +40,9 @@ export default function Dashboard({navigation}){
 
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
-        <View style={styles.item}>
-        <Text style={{fontSize:20}}>{item.title}</Text>
-        <Text style={{fontSize:16}}>{item.department}</Text>
+        <View style={{borderWidth:1,flexDirection:'row',justifyContent:'space-between',width:wp('80%'),alignSelf:'center'}}>
+        <Text style={{fontSize:20,padding:10}}>{item.id}</Text>
+        <Text style={{fontSize:16,padding:10}}>{item.department}</Text>
         </View>
       </TouchableOpacity>
   );
@@ -42,33 +52,42 @@ export default function Dashboard({navigation}){
       <View>
       <Text style={styles.text}>Projects OverView</Text>
         <View style={styles.item}>
-        <FontAwesome name={'building-o'} size={50} color="#393E46"  style={{paddingHorizontal:12}}/>
+        <FontAwesome name={'building-o'} size={45} color="#393E46"  style={{paddingHorizontal:12}}/>
           <View>
             <Text style={styles.text}>No. of Projects</Text>
             <Text style={styles.text}>6</Text>
           </View>
         </View>
         <View style={styles.item}>
-        <MaterialIcons name={'attach-money'} size={50} color="#393E46"  style={{marginRight:12}}/>
+        <MaterialIcons name={'attach-money'} size={45} color="#393E46"  style={{marginRight:12}}/>
           <View>
             <Text style={styles.text}>Contract Value</Text>
             <Text style={styles.text}>Rs. 40.35 Cr</Text>
           </View>
         </View>
         <View style={styles.item}>
-        <Ionicons name={'speedometer-outline'} size={50} color="#393E46"  style={{marginRight:12}}/>
+        <Ionicons name={'speedometer-outline'} size={45} color="#393E46"  style={{marginRight:12}}/>
           <View>
             <Text style={styles.text}>Budget</Text>
             <Text style={styles.text}>Rs. 31.10 Cr</Text>
           </View>
         </View>
         <View style={styles.item}>
-        <MaterialCommunityIcons name={'sack-percent'} size={50} color="#393E46"  style={{marginRight:12}}/>
+        <MaterialCommunityIcons name={'sack-percent'} size={45} color="#393E46"  style={{marginRight:12}}/>
           <View>
             <Text style={styles.text}>     Margin    </Text>
             <Text style={styles.text}>23%</Text>
           </View>
         </View>
+      </View>
+      <View style={{marginTop:10}}>
+        <Text style={styles.text}>Projects On My WatchList</Text>
+        <FlatList
+        data={DATA}
+        keyExtractor={({ id }) => id}
+        contentContainerStyle={{}}
+        renderItem={renderItem}
+      />
       </View>
     </SafeAreaView>
   );
@@ -82,7 +101,7 @@ const styles = StyleSheet.create({
     },
     text:{
       fontWeight:'bold',
-      fontSize:20,
+      fontSize:19,
       alignSelf:'center'
     },
     item:{

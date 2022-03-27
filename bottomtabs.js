@@ -8,7 +8,7 @@ import Dashboard from './src/screens/Dashboard';
 import Location from './location';
 import Contractorlist from './src/screens/Contractorlist';
 import Report from './src/screens/Report';
-import Violations from './src/screens/voilations';
+import Violations from './src/screens/Voilations';
 
 const Tab = createBottomTabNavigator();
 
