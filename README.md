@@ -38,9 +38,9 @@ App Preview:
  Website Preview:
  
  <p float="left">
-  <img src="https://github.com/dishantzaveri/EnemiesOfSyntax/blob/Website/src/assets/page1.jpeg" width=400 height=250 />
-  <img src="https://github.com/dishantzaveri/EnemiesOfSyntax/blob/Website/src/assets/page2.jpeg" width=400 height=250 />
-  <img src="https://github.com/dishantzaveri/EnemiesOfSyntax/blob/Website/src/assets/page3.jpeg" width=400 height=250 />
-  <img src="https://github.com/dishantzaveri/EnemiesOfSyntax/blob/Website/src/assets/page4.jpeg" width=400 height=250 />
+  <img src="https://github.com/dishantzaveri/EnemiesOfSyntax/blob/Website/src/assets/page1.jpeg" width=400 height=225 />
+  <img src="https://github.com/dishantzaveri/EnemiesOfSyntax/blob/Website/src/assets/page2.jpeg" width=400 height=225 />
+  <img src="https://github.com/dishantzaveri/EnemiesOfSyntax/blob/Website/src/assets/page3.jpeg" width=400 height=225 />
+  <img src="https://github.com/dishantzaveri/EnemiesOfSyntax/blob/Website/src/assets/page4.jpeg" width=400 height=225 />
  </p>
  
