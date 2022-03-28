@@ -10,7 +10,7 @@ Construction is a booming industry in the current times but this big demand for 
 
 Hola Everyone, This is team The Enemies of Syntax which consists of 4 people of each and every stack. We have Dishant and Tushar here for React Native, Mihir for Frontend and Vismay for Backend .
 
-# Description of the WorSetu
+# Description of the WorkSetu
 We have developed a portable cross-platform app for both android and ios and also a website with similar functionalities for project management. WorkForce has various features.
 
 # TechStacks used
