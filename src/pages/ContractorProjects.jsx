@@ -9,7 +9,7 @@ export const ProjectTile = ({ project }) => (
   <Link to={`/project/${project.id}`} key={project.id} className="border-[1px] border-gray-400 rounded-xl flex px-8 py-4 gap-4 min-w-[300px] shadow-lg hover:sadow-xl hover:border-[2px]">
     <div className="bg-red-400 h-16 w-16 rounded-full"></div>
     <div className="flex flex-col justify-start items-start">
-      <h1 className="text-2xl font-bold">{project.name}</h1>
+      <h1 className="text-2xl font-bold min-h-[60px]">{project.name}</h1>
       <h1 className="text-lg font-semibold text-cyan-600">{project.location_name}</h1>
     </div>
   </Link>

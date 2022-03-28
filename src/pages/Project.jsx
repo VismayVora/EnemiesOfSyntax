@@ -44,7 +44,7 @@ export const Project = () => {
           <div className="flex flex-col justify-between mb-6">
             <h1 className="text-6xl font-bold">{project.name}</h1>
             <h1 className="text-2xl text-gray-400 my-2 mb-4">{project.description}</h1>
-            <button to='/projects' className='px-6 py-2 text-xl rounded-xl bg-cyan-600 w-[60%] shadow-lg hover:shadow-xl'>Completed</button>
+            <button to='/projects' className='px-6 py-2 text-xl rounded-xl bg-cyan-600 w-[60%] shadow-lg hover:shadow-xl'>Mark as Complete</button>
           </div>
           <WorkersMini id={projectId} />
           <div className=''>

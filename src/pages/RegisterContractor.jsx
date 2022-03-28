@@ -46,7 +46,7 @@ export const RegisterC = () => {
     return <Spinner />
   }
   return (
-    <div className='flex flex-col justify-center items-center h-screen gap-4'>
+    <div className='flex flex-col justify-center items-center h-screen gap-4  bg-gradient-to-r from-cyan-500'>
       <h1 className="text-4xl font-semibold">Register as Contractor</h1>
       <form className='flex flex-col justify-center items-center w-[50%] gap-6' onSubmit={onSubmit}>  
         <input className='px-4 py-2 rounded-xl border-[2px] border-black w-[50%]' type="text" value={name} onChange={e => setName(e.target.value)} placeholder='Enter Name...' />
@@ -59,7 +59,7 @@ export const RegisterC = () => {
           <option value="plumbing">Plumbing</option>
         </select>
         {error ? <h1>{error}</h1> : ' '}
-        <button className='px-4 py-2 rounded-xl bg-cyan-600' type="submit">Register</button>
+        <button className='px-4 py-2 rounded-xl bg-cyan-600 text-white' type="submit">Register</button>
       </form>
       <Link to='/login-contractor' className="text-sm font-semibold text-cyan-600">Already have an account</Link>
     </div>

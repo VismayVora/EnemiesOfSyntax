@@ -50,7 +50,7 @@ export const Row = ({ worker }) => {
       <div className='col-span-2 flex justify-center text-lg border-l-[1px] border-gray-300'>{work.enter_time ? work.enter_time : <h1 className='cursor-pointer text-cyan-600' onClick={() => enter()}>Check In</h1>}</div>
       <div className='col-span-2 flex justify-center text-lg border-l-[1px] border-gray-300'>{work.exit_time ? work.exit_time : <h1 className='cursor-pointer text-cyan-600' onClick={() => exit()}>Check Out</h1>}</div>
       <div className='col-span-2 flex justify-center text-lg border-l-[1px] border-gray-300'>{work.total_time ? work.total_time : <h1>-</h1>}</div>
-      <div className='col-span-2 flex justify-center text-lg border-l-[1px] border-gray-300'>Status</div>
+      <div className='col-span-2 flex justify-center text-lg border-l-[1px] border-gray-300 text-cyan-600'>Change Status</div>
     </div>
   )
 }
@@ -83,7 +83,7 @@ export const WorkerAttendance = () => {
     <div>
       <NavBar />
       <div className='flex flex-col px-32 justify-center items-center'>
-        <h1 className='text-3xl font-bold mb-6'>Attendance Page</h1>
+        <h1 className='text-3xl font-bold my-6'>Attendance Page</h1>
         <div className='flex flex-col gap-4 w-full'>
           <div className='grid grid-cols-12 border-[1px] border-gray-400 rounded-xl px-4 py-3'>
             <div className='col-span-2 flex justify-center text-xl font-semibold'>Name</div>

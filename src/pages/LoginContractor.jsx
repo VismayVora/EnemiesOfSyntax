@@ -39,7 +39,7 @@ export const LoginC = () => {
     return <Spinner />
   }
   return (
-    <div className='flex flex-col justify-center items-center h-screen gap-4'>
+    <div className='flex flex-col justify-center items-center h-screen gap-4 bg-gradient-to-r from-cyan-500'>
       <h1 className="text-4xl font-semibold">Login as Contractor</h1>
       <form className='flex flex-col justify-center items-center w-[50%] gap-6' onSubmit={onSubmit}>
         <input className='px-4 py-2 rounded-xl border-[2px] border-black w-[50%]' type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='Enter Email...' />
